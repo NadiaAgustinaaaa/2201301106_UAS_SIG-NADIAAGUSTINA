@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Data Dapur Arang</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+
+		#map {
+			height: 400px;
+			/* Tinggi peta */
+			width: 100%;
+			/* Lebar peta */
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Begin Page Content -->
+	<div class="container-fluid">
+
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800">Data Dapur Arang</h1>
+
+		<!-- Card -->
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">Data Dapur Arang Di Desa Ranggang</h6>
+			</div>
+			<div class="card-body">
+				<!-- Map Container -->
+				<div id="map"></div>
+			</div>
+		</div>
+		<!-- End of Card -->
+
+	</div>
+	<!-- End of Container-fluid -->
+
+	<!-- Bootstrap JS and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Google Maps API Script -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
+	<!-- Custom JavaScript for Google Maps Initialization -->
+	<script>
+		// Initialize and add the map
+		function initMap() {
+			// Lokasi Desa Ranggang
+			var desaRanggang = { lat: -7.12345, lng: 110.98765 };
+
+			// Buat peta baru, ditampilkan di dalam elemen dengan id 'map'
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 14, // Tingkat zoom awal
+				center: desaRanggang // Pusat peta
+			});
+
+			// Tambahkan marker di lokasi Desa Ranggang
+			var marker = new google.maps.Marker({
+				position: desaRanggang,
+				map: map,
+				title: 'Dapur Arang Di Desa Ranggang'
+			});
+		}
+
+		// Panggil initMap() saat halaman telah dimuat
+		google.maps.event.addDomListener(window, 'load', initMap);
+	</script>
+
+	<!-- Scroll to Top Button -->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
+
+</body>
+
+</html>
